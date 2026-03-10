@@ -11,7 +11,7 @@ object SimpleApp {
       .getOrCreate()
     val df = spark.read
       .option("header", "true")
-      .option("`inferSchema`", "true")
+      .option("inferSchema", "true")
       .csv("src/main/resources/titanic/train.csv")
     df.groupBy("pclass")
       .agg(avg("fare").as("avg_fare"))
